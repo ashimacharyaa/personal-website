@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ashim Acharya | Machine Learning & Stock Trader</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        /* Smooth Scrolling */
+        html { scroll-behavior: smooth; }
+
+        body {
+            background-color: #000000;
+            color: #ffffff;
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            margin: 0;
+            padding: 0;
+            overflow-x: hidden;
+        }
+
+        /* Abstract Background */
+        .bg-pattern {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-image: radial-gradient(circle at 2px 2px, #333 1px, transparent 0);
+            background-size: 40px 40px;
+            opacity: 0.15;
+            z-index: -1;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0; width: 100%;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 15px 50px;
+            box-sizing: border-box;
+            background: rgba(0,0,0,0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            border-bottom: 1px solid #111;
+        }
+
+        .nav-left, .nav-right { display: flex; gap: 25px; }
+        nav a {
+            text-decoration: none; color: #ccc; font-size: 11px;
+            letter-spacing: 2px; font-weight: 600; text-transform: uppercase;
+            transition: 0.3s;
+        }
+        nav a:hover { color: #4ade80; }
+
+        .nav-socials { display: flex; gap: 20px; font-size: 22px; }
+        .nav-socials a { color: white; text-decoration: none; transition: 0.3s; }
+        .nav-socials a:hover { color: #4ade80; transform: translateY(-3px); }
+
+        /* Sections */
+        section {
+            padding: 60px 10%;
+            display: flex; flex-direction: column; justify-content: center;
+        }
+
+        .hero { height: 80vh; text-align: center; align-items: center; }
+        .hero h1 { font-size: 5rem; font-weight: 800; margin-bottom: 15px; letter-spacing: -3px; }
+        .hero p { font-size: 1.6rem; line-height: 1.4; max-width: 850px; margin-bottom: 30px; }
+
+        h2 {
+            font-size: 3.5rem; font-weight: 800; margin-bottom: 40px;
+            position: relative; display: inline-block; width: 100%; letter-spacing: -1px;
+        }
+
+        h2::after {
+            content: ''; position: absolute; bottom: -10px; left: 0; width: 100%; height: 2px;
+            background: linear-gradient(90deg, transparent, #ffffff, transparent);
+            background-size: 200% 100%; animation: moveLine 3s linear infinite;
+        }
+
+        @keyframes moveLine {
+            0% { background-position: 200% 0; }
+            100% { background-position: -200% 0; }
+        }
+
+        /* Grid & Cards */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+
+        .content-card {
+            background: #0a0a0a;
+            padding: 30px;
+            border-radius: 12px;
+            border: 1px solid #222;
+            transition: 0.3s;
+        }
+
+        .content-card:hover { border-color: #4ade80; transform: translateY(-5px); }
+
+        /* Small Icon/Logo Styling (The Tidy Way) */
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 15px;
+        }
+
+        .small-icon {
+            width: 45px;
+            height: 45px;
+            object-fit: contain;
+            border-radius: 6px;
+            background: #fff;
+            padding: 4px;
+        }
+
+        .content-card h3 { font-size: 1.3rem; margin: 0; color: #4ade80; }
+        .content-card p { font-size: 0.95rem; line-height: 1.6; color: #bbb; margin-top: 10px; }
+
+        .score { color: #facc15; font-weight: bold; }
+        .text-green { color: #4ade80; }
+        .text-yellow { color: #facc15; }
+        .text-orange { color: #fbbf24; }
+
+        .explore {
+            margin-top: 30px; display: flex; flex-direction: column; align-items: center;
+            gap: 8px; text-decoration: none; color: white; font-size: 12px; letter-spacing: 2px;
+        }
+
+        .mouse-icon {
+            width: 20px; height: 32px; border: 2px solid white; border-radius: 10px; position: relative;
+        }
+
+        .mouse-icon::after {
+            content: ''; width: 3px; height: 6px; background: white;
+            position: absolute; left: 50%; transform: translateX(-50%);
+            top: 6px; border-radius: 2px; animation: scroll 1.5s infinite;
+        }
+
+        @keyframes scroll {
+            0% { opacity: 1; top: 6px; }
+            100% { opacity: 0; top: 15px; }
+        }
+
+        @media (max-width: 768px) {
+            nav { padding: 15px 20px; flex-direction: column; gap: 15px; }
+            .hero h1 { font-size: 3rem; }
+            h2 { font-size: 2.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="bg-pattern"></div>
+
+    <nav>
+        <div class="nav-left">
+            <a href="#skills">SKILLS</a>
+            <a href="#education">EDUCATION</a>
+            <a href="#work">WORK</a>
+        </div>
+        
+        <div class="nav-socials">
+            <a href="https://github.com/ashimacharyaa" target="_blank"><i class="fa-brands fa-github"></i></a>
+            <a href="https://www.linkedin.com/in/ashimacharya/" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+            <a href="https://scholar.google.com/citations?hl=en&user=iLVKN7kAAAAJ" target="_blank"><i class="fa-solid fa-graduation-cap"></i></a>
+        </div>
+
+        <div class="nav-right">
+            <a href="#contact">REACH OUT</a>
+        </div>
+    </nav>
+
+    <section id="home" class="hero">
+        <h1>Ashim Acharya</h1>
+        <p>
+            <span class="text-green">Machine Learning Professional</span> with <span class="text-yellow">expertise</span> 
+            in building predictive models and <span class="text-green">Neural Networks</span>.
+        </p>
+        <p>
+            Currently applying quantitative data strategies as a 
+            <span class="text-orange">Professional Data Analyst</span> and Researcher.
+        </p>
+        <a href="#skills" class="explore">
+            <div class="mouse-icon"></div>
+            EXPLORE
+        </a>
+    </section>
+
+    <section id="skills">
+        <h2>Technical Skills</h2>
+        <div class="grid-container">
+            <div class="content-card">
+                <div class="card-header">
+                    <img src="https://darpanjain.com/images/skills/programming-logo.png" alt="Programming" class="small-icon">
+                    <h3>Programming</h3>
+                </div>
+                <p>Python, C, C++, Javascript, SQL</p>
+            </div>
+            <div class="content-card">
+                <div class="card-header">
+                    <img src="https://darpanjain.com/images/skills/deeplearning.png" alt="AI/ML" class="small-icon">
+                    <h3>AI & ML Stack</h3>
+                </div>
+                <p>PyTorch, Tensorflow, TensorRT, CUDA, HuggingFace</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="education">
+        <h2>Education</h2>
+        <div class="grid-container">
+            <div class="content-card">
+                <div class="card-header">
+                    <img src="https://tse1.mm.bing.net/th/id/OIP.Z4zNOIziVISihrkBlg7uOAAAAA?pid=Api&P=0&h=180" alt="Westcliff" class="small-icon">
+                    <h3>Westcliff University</h3>
+                </div>
+                <p><strong>Bachelor of Computer Science</strong><br>
+                <span class="text-yellow">Specialization in AI and Machine Learning</span></p>
+            </div>
+
+            <div class="content-card">
+                <div class="card-header">
+                    <img src="https://media.edusanjal.com/__sized__/logos/kathmandu_bernhardt_colllege_logo-thumbnail-200x200-70.jpeg" alt="Bernhardt" class="small-icon">
+                    <h3>Kathmandu Bernhardt</h3>
+                </div>
+                <p><strong>High School (Balkhu)</strong><br>
+                Score: <span class="score">3.78 / 4.00</span></p>
+            </div>
+        </div>
+    </section>
+
+    <section id="work">
+        <h2>Work</h2>
+        <div class="content-card">
+            <div class="card-header">
+                <img src="https://cdn.futura-sciences.com/buildsv6/images/wide1920/0/3/a/03a0554ae1_50175403_data-analyst-data-scientist-formation-metier.jpg" alt="Work" class="small-icon">
+                <h3>Data Analyst</h3>
+            </div>
+            <p>Transforming raw data into meaningful insights that support strategic decision-making and solve complex problems using analytical tools and critical thinking.</p>
+        </div>
+    </section>
+
+    <section id="contact" style="text-align: center; padding-bottom: 100px;">
+        <h2>Reach Out</h2>
+        <p style="font-size: 1.5rem;">Let's collaborate on <span class="text-green">AI</span> and <span class="text-orange">Research.</span></p>
+        <div style="margin-top: 30px;">
+            <a href="mailto:ashimacharyaa08@gmail.com" style="color: white; font-size: 1.2rem; text-decoration: none; border: 1px solid white; padding: 12px 25px; border-radius: 50px; transition: 0.3s;">Email Me</a>
+        </div>
+    </section>
+
+</body>
+</html>
